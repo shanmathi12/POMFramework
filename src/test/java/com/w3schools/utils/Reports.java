@@ -22,7 +22,7 @@ public class Reports {
 	public static ExtentTest extentTest;
 	
 	
-	@BeforeSuite
+	@BeforeSuite(alwaysRun=true)
 	public void startReport()
 	{
 		try
@@ -30,7 +30,7 @@ public class Reports {
 			sparkReporter= new ExtentSparkReporter(System.getProperty("user.dir")+"/WebAutomationReport.html");
 			sparkReporter.config().setDocumentTitle("W3Schools Web Automation Report");
 			sparkReporter.config().setReportName("W3Schools Web Automation");
-			sparkReporter.config().setTheme(Theme.DARK);
+			sparkReporter.config().setTheme(Theme.STANDARD);
 			
 			extentReports= new ExtentReports();
 			extentReports.attachReporter(sparkReporter);
@@ -80,7 +80,7 @@ public class Reports {
 		}
 	}
 	
-	@AfterSuite
+	@AfterSuite(alwaysRun=true)
 	public void endReport()
 	{
 		try
